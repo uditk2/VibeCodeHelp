@@ -14,7 +14,13 @@ const sections = {
 const buttons = {
     getStarted: document.getElementById('getStartedBtn'),
     googleLogin: document.getElementById('googleLoginBtn'),
-    home: document.getElementById('homeBtn')
+    home: document.getElementById('homeBtn'),
+    logout: document.getElementById('logoutBtn')
+};
+
+const userElements = {
+    userInfo: document.getElementById('userInfo'),
+    userName: document.querySelector('.user-name')
 };
 
 const forms = {
@@ -73,6 +79,9 @@ function handleGoogleSignIn(response) {
 
         saveToLocalStorage('user', currentUser);
 
+        // Update UI to show user info
+        updateUserInterface();
+
         // Show issue form after successful login
         showSection('issueForm');
 
@@ -93,6 +102,7 @@ function mockGoogleSignIn() {
     };
 
     saveToLocalStorage('user', currentUser);
+    updateUserInterface();
     showSection('issueForm');
     console.log('Mock user signed in:', currentUser);
 }
@@ -200,6 +210,43 @@ function goHome() {
     currentUser = null;
     userIssue = null;
     localStorage.clear();
+    updateUserInterface();
+}
+
+// Logout Function
+function logout() {
+    // Clear user data
+    currentUser = null;
+    userIssue = null;
+
+    // Clear localStorage
+    localStorage.clear();
+
+    // Return to landing page
+    showSection('landing');
+
+    // Update UI
+    updateUserInterface();
+
+    // Sign out from Google if signed in
+    if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
+        google.accounts.id.disableAutoSelect();
+    }
+
+    console.log('User logged out successfully');
+    trackEvent('user_logout', { method: 'manual' });
+}
+
+// Update User Interface based on authentication state
+function updateUserInterface() {
+    if (currentUser && userElements.userInfo && userElements.userName) {
+        // User is logged in - show user info and logout button
+        userElements.userInfo.classList.remove('hidden');
+        userElements.userName.textContent = currentUser.name;
+    } else if (userElements.userInfo) {
+        // User is not logged in - hide user info
+        userElements.userInfo.classList.add('hidden');
+    }
 }
 
 // Check for existing session
@@ -212,16 +259,19 @@ function checkExistingSession() {
         // User has already completed booking
         currentUser = savedUser;
         userIssue = savedIssue;
+        updateUserInterface();
         showSection('thankYou');
     } else if (savedUser && savedIssue) {
         // User was in the middle of booking
         currentUser = savedUser;
         userIssue = savedIssue;
+        updateUserInterface();
         showSection('calendar');
         loadCalendar();
     } else if (savedUser) {
         // User was logged in but didn't complete issue form
         currentUser = savedUser;
+        updateUserInterface();
         showSection('issueForm');
     }
 }
@@ -262,6 +312,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Home button
     if (buttons.home) {
         buttons.home.addEventListener('click', goHome);
+    }
+
+    // Logout button
+    if (buttons.logout) {
+        buttons.logout.addEventListener('click', logout);
     }
 });
 
