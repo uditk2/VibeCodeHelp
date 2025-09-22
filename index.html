@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixMyCode - Get Your Vibe Coded Project Fixed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="material-icons">code</span>
+                <span>FixMyCode</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Landing Section -->
+        <section id="landing" class="section landing-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Going in Circles with Your <span class="gradient-text">Vibe Coded</span> Project?
+                    </h1>
+                    <p class="hero-subtitle">
+                        Get expert help and break through the roadblock.
+                    </p>
+
+                    <div class="features-grid">
+                        <div class="feature-card glass">
+                            <span class="material-icons">build_circle</span>
+                            <h3>Debug Issues</h3>
+                            <p>Quick fixes for bugs and errors</p>
+                        </div>
+                        <div class="feature-card glass">
+                            <span class="material-icons">rocket_launch</span>
+                            <h3>Boost Performance</h3>
+                            <p>Optimize speed and efficiency</p>
+                        </div>
+                        <div class="feature-card glass">
+                            <span class="material-icons">psychology</span>
+                            <h3>Expert Guidance</h3>
+                            <p>Clear direction from experienced devs</p>
+                        </div>
+                    </div>
+
+                    <div class="cta-section">
+                        <button id="getStartedBtn" class="cta-button glass">
+                            <span class="material-icons">calendar_today</span>
+                            Book Your Free 10-Minute Session Today
+                        </button>
+                        <p class="cta-subtitle">No commitment • Expert help • Get unstuck fast</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login" class="section login-section hidden">
+            <div class="container">
+                <div class="login-card glass">
+                    <div class="login-header">
+                        <span class="material-icons">account_circle</span>
+                        <h2>Sign in to continue</h2>
+                        <p>Book your free 10-minute consultation session</p>
+                    </div>
+
+                    <button id="googleLoginBtn" class="google-login-btn">
+                        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" class="google-icon">
+                        Continue with Google
+                    </button>
+
+                    <div class="login-footer">
+                        <p>By signing in, you agree to our Terms of Service and Privacy Policy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Issue Form Section -->
+        <section id="issueForm" class="section issue-section hidden">
+            <div class="container">
+                <div class="issue-card glass">
+                    <div class="issue-header">
+                        <span class="material-icons">assignment</span>
+                        <h2>Tell us about your project</h2>
+                        <p>Help us understand your issue so we can provide better assistance</p>
+                    </div>
+
+                    <form id="issueFormElement" class="issue-form">
+                        <div class="form-group">
+                            <label for="projectType">Project Type</label>
+                            <select id="projectType" required>
+                                <option value="">Select project type</option>
+                                <option value="web-frontend">Web Frontend (React, Vue, Angular)</option>
+                                <option value="web-backend">Web Backend (Node.js, Python, PHP)</option>
+                                <option value="mobile">Mobile App (React Native, Flutter)</option>
+                                <option value="desktop">Desktop App</option>
+                                <option value="fullstack">Full Stack Application</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="issueType">Issue Type</label>
+                            <select id="issueType" required>
+                                <option value="">Select issue type</option>
+                                <option value="bug">Bug Fix</option>
+                                <option value="performance">Performance Optimization</option>
+                                <option value="feature">New Feature</option>
+                                <option value="refactoring">Code Refactoring</option>
+                                <option value="deployment">Deployment Issues</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="issueDescription">Describe Your Issue</label>
+                            <textarea id="issueDescription" placeholder="Please describe what issues you're facing, what you've tried, and what outcome you're looking for..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="urgency">Urgency Level</label>
+                            <select id="urgency" required>
+                                <option value="">Select urgency</option>
+                                <option value="low">Low - Can wait a few days</option>
+                                <option value="medium">Medium - Need help within 24-48 hours</option>
+                                <option value="high">High - Need help ASAP</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span class="material-icons">calendar_today</span>
+                            Continue to Book Session
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendar Section -->
+        <section id="calendar" class="section calendar-section hidden">
+            <div class="container">
+                <div class="calendar-card glass">
+                    <div class="calendar-header">
+                        <span class="material-icons">event</span>
+                        <h2>Book Your Free 10-Minute Session</h2>
+                        <p>Choose a convenient time for your consultation</p>
+                    </div>
+
+                    <div class="cal-embed">
+                        <!-- Cal.com embed will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thank You Section -->
+        <section id="thankYou" class="section thank-you-section hidden">
+            <div class="container">
+                <div class="thank-you-card glass">
+                    <div class="thank-you-content">
+                        <div class="success-icon">
+                            <span class="material-icons">check_circle</span>
+                        </div>
+                        <h2>Session Booked Successfully!</h2>
+                        <p>Thank you for booking a consultation with FixMyCode. We're excited to help you get your project back on track!</p>
+
+                        <div class="next-steps">
+                            <h3>What happens next?</h3>
+                            <div class="steps">
+                                <div class="step">
+                                    <span class="material-icons">email</span>
+                                    <div>
+                                        <h4>Confirmation Email</h4>
+                                        <p>You'll receive a confirmation email with meeting details</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <span class="material-icons">laptop</span>
+                                    <div>
+                                        <h4>Prepare Your Code</h4>
+                                        <p>Have your project ready to share and discuss specific issues</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <span class="material-icons">video_call</span>
+                                    <div>
+                                        <h4>Join the Call</h4>
+                                        <p>Meet with our expert at the scheduled time for your free consultation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="homeBtn" class="home-btn">
+                            <span class="material-icons">home</span>
+                            Back to Home
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
