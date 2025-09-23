@@ -16,24 +16,13 @@
         <div class="gradient-orb orb-3"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="logo">
-                <span class="material-icons">code</span>
-                <span>FixMyCode</span>
-            </div>
-            <div class="nav-actions">
-                <div id="userInfo" class="user-info hidden">
-                    <span class="user-name"></span>
-                    <button id="logoutBtn" class="logout-btn">
-                        <span class="material-icons">logout</span>
-                        Logout
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- Floating Logout Button -->
+    <div id="floatingLogout" class="floating-logout hidden">
+        <button id="logoutBtn" class="logout-btn">
+            <span class="material-icons">logout</span>
+            <span class="logout-text">Logout</span>
+        </button>
+    </div>
 
     <!-- Main Content -->
     <main class="main">
@@ -41,6 +30,12 @@
         <section id="landing" class="section landing-section">
             <div class="container">
                 <div class="hero-content">
+                    <div class="brand-header">
+                        <div class="logo">
+                            <span class="material-icons">code</span>
+                            <span>FixMyCode</span>
+                        </div>
+                    </div>
                     <h1 class="hero-title">
                         Going in Circles with Your <span class="gradient-text">Vibe Coded</span> Project?
                     </h1>

@@ -104,43 +104,12 @@ body {
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
 
-/* Navigation */
-.nav {
+/* Floating Logout Button */
+.floating-logout {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 2rem;
+    right: 2rem;
     z-index: 1000;
-    padding: 1.5rem 0;
-    backdrop-filter: blur(20px);
-    background: rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.user-name {
-    color: #ffffff;
-    font-weight: 500;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .logout-btn {
@@ -148,27 +117,35 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
-    background: rgba(255, 107, 157, 0.1);
-    color: #ff8cc8;
-    border: 1px solid rgba(255, 107, 157, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
     font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .logout-btn:hover {
     background: rgba(255, 107, 157, 0.2);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.2);
-    border-color: rgba(255, 107, 157, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+    border-color: rgba(255, 107, 157, 0.4);
+    color: #ff8cc8;
 }
 
 .logout-btn .material-icons {
     font-size: 1.1rem;
+}
+
+/* Brand Header */
+.brand-header {
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out;
 }
 
 .logo {
@@ -209,7 +186,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6rem 0;
+    padding: 2rem 0;
     position: relative;
 }
 
@@ -870,17 +847,13 @@ body {
 }
 
 @media (max-width: 768px) {
-    .nav-container,
     .container {
         padding: 0 1.5rem;
     }
 
-    .user-info {
-        gap: 0.5rem;
-    }
-
-    .user-name {
-        display: none;
+    .floating-logout {
+        top: 1rem;
+        right: 1rem;
     }
 
     .logout-btn {
@@ -888,8 +861,20 @@ body {
         font-size: 0.8rem;
     }
 
+    .logout-text {
+        display: none;
+    }
+
     .section {
-        padding: 4rem 0;
+        padding: 2rem 0;
+    }
+
+    .brand-header {
+        margin-bottom: 2rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
     }
 
     .hero-title {
@@ -943,9 +928,13 @@ body {
 }
 
 @media (max-width: 480px) {
-    .nav-container,
     .container {
         padding: 0 1rem;
+    }
+
+    .floating-logout {
+        top: 0.75rem;
+        right: 0.75rem;
     }
 
     .hero-title {

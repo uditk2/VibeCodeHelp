@@ -19,8 +19,7 @@ const buttons = {
 };
 
 const userElements = {
-    userInfo: document.getElementById('userInfo'),
-    userName: document.querySelector('.user-name')
+    floatingLogout: document.getElementById('floatingLogout')
 };
 
 const forms = {
@@ -239,13 +238,12 @@ function logout() {
 
 // Update User Interface based on authentication state
 function updateUserInterface() {
-    if (currentUser && userElements.userInfo && userElements.userName) {
-        // User is logged in - show user info and logout button
-        userElements.userInfo.classList.remove('hidden');
-        userElements.userName.textContent = currentUser.name;
-    } else if (userElements.userInfo) {
-        // User is not logged in - hide user info
-        userElements.userInfo.classList.add('hidden');
+    if (currentUser && userElements.floatingLogout) {
+        // User is logged in - show floating logout button
+        userElements.floatingLogout.classList.remove('hidden');
+    } else if (userElements.floatingLogout) {
+        // User is not logged in - hide floating logout button
+        userElements.floatingLogout.classList.add('hidden');
     }
 }
 
